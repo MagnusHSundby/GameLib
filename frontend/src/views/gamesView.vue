@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import Gamecard from '../components/Gamecard.vue';
+import Gamecard from '../components/gameCard.vue';
 </script>
