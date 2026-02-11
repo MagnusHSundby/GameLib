@@ -16,6 +16,16 @@ import { RouterLink, RouterView } from 'vue-router';
   </div>
 </template>
 
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  min-height: 100vh;
+}
+</style>
+
 <style scoped>
 header {
   padding: 1rem;
