@@ -1,10 +1,43 @@
 <script setup lang="ts">
-import Gamecard from './components/Gamecard.vue';
-
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
-  <Gamecard :game="{ name: 'Chess', description: 'A classic strategy game' }"/>
+  <div id="app">
+    <header>
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/games">Games</RouterLink>
+      </nav>
+    </header>
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+header {
+  padding: 1rem;
+  background: #333;
+  color: white;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+}
+</style>
