@@ -3,8 +3,11 @@
         <h1>Games</h1>
             <div v-if="loading">Loading...</div>
             <div v-else-if="error">Error: {{ error }}</div>
-            <div v-else class="game-list">
-                <gameCard v-for="game in games" :key="game.spill_id" :game="game" />
+            <div v-else class="game-list-wrapper">
+                <div class="game-list">
+                    <gameCard v-for="game in games" :key="`first-${game.spill_id}`" :game="game" />
+                    <gameCard v-for="game in games" :key="`second-${game.spill_id}`" :game="game" />
+                </div>
             </div>
     </div>
 </template>
@@ -37,6 +40,38 @@ onMounted(async () => {
         loading.value = false;
     }
 });
-
-
 </script>
+
+<style scoped>
+.games-view {
+    padding: 2rem;
+}
+
+.game-list-wrapper {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.game-list {
+    display: flex;
+    width: fit-content;
+    animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        transform: translateX(-50%); 
+    }
+}
+
+.game-list:hover {
+    animation-play-state: paused;
+}
+
+h1 {
+    text-align: center;  
+}
+</style>
