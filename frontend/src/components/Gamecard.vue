@@ -2,7 +2,7 @@
   <div class="game-card">
     <h2>{{ game.navn }}</h2>
     <p>{{ game.sjanger }}</p>
-    <p class="date">{{ game.utgivelsesdato }}</p>
+    <p class="date">Released: {{ formatDate(game.utgivelsesdato) }}</p>
   </div>
 </template>
 
@@ -17,6 +17,10 @@ interface Game {
 defineProps<{
   game: Game;
 }>();
+
+const formatDate = (isoDate: string) => {
+  return new Date(isoDate).toLocaleDateString();
+};
 </script>
 
 <style scoped>
@@ -24,7 +28,9 @@ defineProps<{
   border: 1px solid #b1adad;
   padding: 16px;
   margin: 16px;
+  min-width: 200px;
   border-radius: 8px;
 }
+
 </style>
 
