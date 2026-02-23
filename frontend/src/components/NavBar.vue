@@ -51,7 +51,7 @@ onMounted(() => {
 const onLinkHover = (index: number) => {
   gsap.to(linkRefs.value[index].$el, {
     scale: 1.1,
-    color: '#4fc3f7',
+    textShadow: '0 0 8px rgba(255, 255, 255, 0.5)',
     duration: 0.3,
     ease: 'power2.out'
   });
@@ -60,7 +60,7 @@ const onLinkHover = (index: number) => {
 const onLinkLeave = (index: number) => {
   gsap.to(linkRefs.value[index].$el, {
     scale: 1,
-    color: '#ffffff',
+    textShadow: '0 0 0px rgba(255, 255, 255, 0)',
     duration: 0.3,
     ease: 'power2.out'
   });
@@ -69,21 +69,34 @@ const onLinkLeave = (index: number) => {
 
 <style scoped>
 header {
-  padding: 1rem;
-  background: #333;
-  color: white;
+    padding: 1rem;
+    background: rgba(30, 34, 53, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 nav {
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1.5rem;
 }
 
 .nav-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: none;
-  display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: none;
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-link.router-link-active {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 </style>

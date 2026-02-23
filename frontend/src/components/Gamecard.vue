@@ -48,7 +48,7 @@ const onHover = () => {
   
   gsap.to(cardRef.value, {
     scale: 1.05,
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 8px 24px rgba(79, 195, 247, 0.3)',
     duration: 0.5,
     ease: 'power1.out',
     overwrite: 'auto'
@@ -60,7 +60,7 @@ const onLeave = () => {
   
   gsap.to(cardRef.value, {
     scale: 1,
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
+    boxShadow: '0 2px 8px rgba(79, 195, 247, 0.1)',
     duration: 0.5,
     ease: 'power1.out',
     overwrite: 'auto',
@@ -77,12 +77,30 @@ const onLeave = () => {
 
 <style scoped>
 .game-card {
-  border: 1px solid #b1adad;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px;
   margin: 16px;
   min-width: 200px;
-  border-radius: 8px;
+  border-radius: 12px;
+  color: #e0e0e0;
 }
 
+.game-card h2 {
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.game-card p {
+  margin: 0.3rem 0;
+  color: #b0b0b0;
+}
+
+.game-card .date {
+  color: #888;
+  font-size: 0.9rem;
+}
 </style>
 

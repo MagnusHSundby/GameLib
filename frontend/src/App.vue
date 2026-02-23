@@ -16,6 +16,8 @@ import NavBar from './components/NavBar.vue';
 body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #1e2235 0%, #1a2845 100%);
+  min-height: 100vh;
 }
 #app {
   min-height: 100vh;

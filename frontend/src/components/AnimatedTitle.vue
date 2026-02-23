@@ -16,8 +16,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  color1:'#4fc3f7',
-  color2:'#64b5f6',
+  color1:'#ffffff',
+  color2:'#d0d0d0',
   animationDuration: 5
 });
 

@@ -1,6 +1,6 @@
 <template>
     <div class="games-view">
-        <AnimatedTitle text="Games" />
+        <AnimatedTitle text="Games" colcolor2="#d0d0d0"or1="#ffffff"  />
             <div v-if="loading">Loading...</div>
             <div v-else-if="error">Error: {{ error }}</div>
             <div v-else class="game-list-wrapper">
@@ -55,12 +55,16 @@ onMounted(async () => {
 const startScrollAnimation = () => {
     if (!gameListRef.value) return;
     
-    scrollTween = gsap.to(gameListRef.value, {
-        x: '-50%',
-        duration: 40,
-        ease: 'none',
-        repeat: -1
-    });
+    scrollTween = gsap.fromTo(gameListRef.value, 
+        { x: '0%' },
+        {
+            x: '-50%',
+            duration: 90,
+            ease: 'none',
+            repeat: -1,
+            force3D: true
+        }
+    );
 };
 
 const pauseScroll = () => {
