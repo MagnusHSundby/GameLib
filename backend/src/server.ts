@@ -17,4 +17,6 @@ app.use('/api/health', (req, res) => {
 
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`);
+	console.log(`Health check available at http://localhost:${PORT}/api/health`);
+	console.log(`Games endpoints available at http://localhost:${PORT}/api/games`);
 });
