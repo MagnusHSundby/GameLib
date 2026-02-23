@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
+import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
   <div id="app">
-    <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/games">Games</RouterLink>
-      </nav>
-    </header>
+    <NavBar />
     <main>
       <RouterView />
     </main>
@@ -27,26 +23,6 @@ body {
 </style>
 
 <style scoped>
-header {
-  padding: 1rem;
-  background: #333;
-  color: white;
-}
-
-nav {
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
 main {
   padding: 2rem;
 }
