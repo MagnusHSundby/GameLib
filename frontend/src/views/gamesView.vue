@@ -67,10 +67,6 @@ onMounted(async () => {
     }
 }
 
-.game-list:hover {
-    animation-play-state: paused;
-}
-
 h1 {
     text-align: center;  
 }
