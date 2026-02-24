@@ -47,6 +47,7 @@ const onHover = () => {
   isHovered.value = true;
   
   gsap.to(cardRef.value, {
+    cursor: 'pointer',
     scale: 1.05,
     boxShadow: '0 1px 10px rgba(79, 195, 247, 0.3)',
     duration: 0.5,
