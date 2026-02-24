@@ -61,17 +61,12 @@ const onLeave = () => {
   
   gsap.to(cardRef.value, {
     scale: 1,
-    boxShadow: '0 2px 8px rgba(79, 195, 247, 0.1)',
-    duration: 0.5,
+    boxShadow: '0 1px 10px rgba(79, 195, 247, 0.1)',
+    duration: 0.6,
     ease: 'power1.out',
-    overwrite: 'auto',
     onComplete: () => {
-      gsap.to(cardRef.value, {
-        boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
-        duration: 0.3,
-        ease: 'power1.out'
-      });
-    }
+      gsap.set(cardRef.value, { boxShadow: 'none' });
+    },
   });
 };
 </script>
