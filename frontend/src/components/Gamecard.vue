@@ -48,7 +48,7 @@ const onHover = () => {
   
   gsap.to(cardRef.value, {
     scale: 1.05,
-    boxShadow: '0 8px 24px rgba(79, 195, 247, 0.3)',
+    boxShadow: '0 1px 10px rgba(79, 195, 247, 0.3)',
     duration: 0.5,
     ease: 'power1.out',
     overwrite: 'auto'
