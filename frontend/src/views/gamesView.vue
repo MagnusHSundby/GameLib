@@ -14,6 +14,12 @@
                     <gameCard v-for="game in games" :key="`second-${game.spill_id}`" :game="game" />
                 </div>
             </div>
+            <div class="add-game-button">
+                <ClickButton label="Add Game" @click="openConfirm" />
+                <Teleport to="#modal">
+                    <AddGameModal v-if="modal.show.value" @close="closeModal" @confirm="handleConfirm" />
+                </Teleport>
+            </div>
     </div>
 </template>
 
@@ -22,6 +28,26 @@ import gameCard from '../components/gameCard.vue';
 import AnimatedTitle from '../components/AnimatedTitle.vue';
 import { ref, onMounted, nextTick } from 'vue';
 import gsap from 'gsap';
+import ClickButton from '../components/ClickButton.vue';
+import AddGameModal from '@/components/AddGameModal.vue';
+import { useModal } from '../composables/useModal';
+import { markRaw } from 'vue';
+
+const modal = useModal();
+
+const openConfirm = () => {
+    modal.component.value = markRaw(AddGameModal);
+    modal.showModal();
+};
+
+const closeModal = () => {
+    modal.hideModal();
+};
+
+const handleConfirm = () => {
+    console.log('Confirmed!');
+    modal.hideModal();
+};
 
 interface Game {
     spill_id: number;
