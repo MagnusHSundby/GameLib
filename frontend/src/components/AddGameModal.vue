@@ -3,18 +3,72 @@
     <div class="modal-content" role="dialog" aria-modal="true" @click.stop>
       <h3>Add New Game</h3>
       <div class="button-container">
+        <input
+          v-model="gameName"
+          type="text"
+          placeholder="Game Name"
+          class="input-field"
+        />
+        <input
+          v-model="gameGenre"
+          type="text"
+          placeholder="Game Genre"
+          class="input-field"
+        />
+        <input
+          v-model="gameReleaseDate"
+          type="date"
+          placeholder="Release Date"
+          class="input-field"
+        />
+      </div>
+      <div class="button-container">
         <button @click="$emit('close')" class="btn-no">Go back</button>
-        <button @click="$emit('confirm')" class="btn-yes">Add Game</button>
+        <button @click="handleConfirm" class="btn-yes">Add Game</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineEmits<{
+import { ref } from 'vue';
+
+const gameName = ref('');
+const gameGenre = ref('');
+const gameReleaseDate = ref('');
+const emit = defineEmits<{
   close: [];
-  confirm: [];
+  confirm: [payload: { gameName: string; gameGenre: string; gameReleaseDate: Date }];
 }>();
+
+const handleConfirm = () => {
+  emit('confirm', { gameName: gameName.value, gameGenre: gameGenre.value, gameReleaseDate: new Date(gameReleaseDate.value) });
+
+  fetch('/api/games', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: gameName.value,
+      genre: gameGenre.value,
+      releaseDate: gameReleaseDate.value,
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log('Game added successfully:', data);
+    })
+    .catch((error) => {
+      console.error('Error adding game:', error);
+    });
+}
+
 </script>
 
 <style scoped>
@@ -35,7 +89,8 @@ defineEmits<{
     0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   padding: 1.5rem;
-  width: 16rem;
+  width: 50vh;
+  height: 20vh;
 }
 
 .modal-content h3 {
@@ -77,5 +132,11 @@ defineEmits<{
 
 .btn-yes:hover {
   background-color: #2563eb;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 </style>
