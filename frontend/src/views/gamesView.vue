@@ -56,7 +56,6 @@ const closeModal = () => {
 };
 
 const handleConfirm = () => {
-  console.log("Confirmed!");
   modal.hideModal();
 };
 
