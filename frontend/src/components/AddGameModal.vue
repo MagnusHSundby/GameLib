@@ -143,13 +143,13 @@ const handleConfirm = () => {
 
 .btn-yes {
   border: none;
-background: linear-gradient(135deg, #1e2235 0%, #1a2845 100%);
+  background: linear-gradient(135deg, #1e2235 0%, #1a2845 100%);
   color: white;
   font: inherit
 }
 
 .btn-yes:hover {
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #333a5a 0%, #24375e 100%);
 }
 
 .input-container {
