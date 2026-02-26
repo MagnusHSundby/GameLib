@@ -1,10 +1,10 @@
 <template>
   <div class="modal-overlay" @click="$emit('close')">
     <div class="modal-content" role="dialog" aria-modal="true" @click.stop>
-      <h3>Do you confirm?</h3>
+      <h3>Add New Game</h3>
       <div class="button-container">
-        <button @click="$emit('close')" class="btn-no">No</button>
-        <button @click="$emit('confirm')" class="btn-yes">Yes</button>
+        <button @click="$emit('close')" class="btn-no">Go back</button>
+        <button @click="$emit('confirm')" class="btn-yes">Add Game</button>
       </div>
     </div>
   </div>

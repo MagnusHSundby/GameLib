@@ -1,6 +1,6 @@
 <template>
-  <div 
-    ref="cardRef" 
+  <button
+    ref="cardRef"
     class="game-card"
     @mouseenter="onHover"
     @mouseleave="onLeave"
@@ -8,12 +8,12 @@
     <h2>{{ game.navn }}</h2>
     <p>{{ game.sjanger }}</p>
     <p class="date">Released: {{ formatDate(game.utgivelsesdato) }}</p>
-  </div>
+  </button>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import gsap from 'gsap';
+import { ref, onMounted } from "vue";
+import gsap from "gsap";
 
 interface Game {
   spill_id: number;
@@ -38,34 +38,34 @@ onMounted(() => {
     opacity: 0,
     y: 30,
     duration: 1,
-    ease: 'power2.out'
+    ease: "power2.out",
   });
 });
 
 const onHover = () => {
   if (isHovered.value) return;
   isHovered.value = true;
-  
+
   gsap.to(cardRef.value, {
-    cursor: 'pointer',
+    cursor: "pointer",
     scale: 1.05,
-    boxShadow: '0 1px 10px rgba(79, 195, 247, 0.3)',
+    boxShadow: "0 1px 10px rgba(79, 195, 247, 0.3)",
     duration: 0.5,
-    ease: 'power1.out',
-    overwrite: 'auto'
+    ease: "power1.out",
+    overwrite: "auto",
   });
 };
 
 const onLeave = () => {
   isHovered.value = false;
-  
+
   gsap.to(cardRef.value, {
     scale: 1,
-    boxShadow: '0 1px 10px rgba(79, 195, 247, 0.1)',
+    boxShadow: "0 1px 10px rgba(79, 195, 247, 0.1)",
     duration: 0.6,
-    ease: 'power1.out',
+    ease: "power1.out",
     onComplete: () => {
-      gsap.set(cardRef.value, { boxShadow: 'none' });
+      gsap.set(cardRef.value, { boxShadow: "none" });
     },
   });
 };
@@ -97,6 +97,6 @@ const onLeave = () => {
 .game-card .date {
   color: #888;
   font-size: 0.9rem;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.76);
 }
 </style>
-
