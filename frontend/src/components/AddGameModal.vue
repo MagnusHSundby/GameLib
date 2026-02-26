@@ -1,8 +1,8 @@
 <template>
   <div class="modal-overlay" @click="$emit('close')">
     <div class="modal-content" role="dialog" aria-modal="true" @click.stop>
-      <h3>Add New Game</h3>
-      <div class="button-container">
+      <h3 class="modal-title">Add New Game</h3>
+      <div class="input-container">
         <input
           v-model="gameName"
           type="text"
@@ -31,23 +31,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const gameName = ref('');
-const gameGenre = ref('');
-const gameReleaseDate = ref('');
+const gameName = ref("");
+const gameGenre = ref("");
+const gameReleaseDate = ref("");
 const emit = defineEmits<{
   close: [];
-  confirm: [payload: { gameName: string; gameGenre: string; gameReleaseDate: Date }];
+  confirm: [
+    payload: { gameName: string; gameGenre: string; gameReleaseDate: Date },
+  ];
 }>();
 
 const handleConfirm = () => {
-  emit('confirm', { gameName: gameName.value, gameGenre: gameGenre.value, gameReleaseDate: new Date(gameReleaseDate.value) });
-
-  fetch('/api/games', {
-    method: 'POST',
+  emit("confirm", {
+    gameName: gameName.value,
+    gameGenre: gameGenre.value,
+    gameReleaseDate: new Date(gameReleaseDate.value),
+  });
+  if (!gameName.value || !gameGenre.value || !gameReleaseDate.value) {
+    alert("Please fill in all fields");
+    return;
+  }
+  fetch("/api/games", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       name: gameName.value,
@@ -57,18 +66,17 @@ const handleConfirm = () => {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       return response.json();
     })
     .then((data) => {
-      console.log('Game added successfully:', data);
+      console.log("Game added successfully:", data);
     })
     .catch((error) => {
-      console.error('Error adding game:', error);
+      console.error("Error adding game:", error);
     });
-}
-
+};
 </script>
 
 <style scoped>
@@ -88,12 +96,20 @@ const handleConfirm = () => {
   box-shadow:
     0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  padding: 1.5rem;
-  width: 50vh;
-  height: 20vh;
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
+
+  width: 45%;
+  min-height: 250px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.modal-content h3 {
+.modal-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.modal-content {
   margin: 0 0 1rem 0;
   font-size: 1.125rem;
   font-weight: 600;
@@ -101,8 +117,7 @@ const handleConfirm = () => {
 
 .button-container {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: center;  
   padding-top: 1rem;
 }
 
@@ -126,7 +141,7 @@ const handleConfirm = () => {
 
 .btn-yes {
   border: none;
-  background-color: #3b82f6;
+background: linear-gradient(135deg, #1e2235 0%, #1a2845 100%);
   color: white;
 }
 
@@ -134,9 +149,24 @@ const handleConfirm = () => {
   background-color: #2563eb;
 }
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 1rem;
 }
 </style>
