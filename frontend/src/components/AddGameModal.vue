@@ -80,6 +80,7 @@ const handleConfirm = () => {
 </script>
 
 <style scoped>
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -133,6 +134,7 @@ const handleConfirm = () => {
   border: 1px solid black;
   background-color: white;
   color: black;
+  font: inherit;
 }
 
 .btn-no:hover {
@@ -143,6 +145,7 @@ const handleConfirm = () => {
   border: none;
 background: linear-gradient(135deg, #1e2235 0%, #1a2845 100%);
   color: white;
+  font: inherit
 }
 
 .btn-yes:hover {
@@ -168,5 +171,7 @@ background: linear-gradient(135deg, #1e2235 0%, #1a2845 100%);
   border: 1px solid #d1d5db;
   border-radius: 0.25rem;
   font-size: 1rem;
+  font: inherit;
 }
+
 </style>
