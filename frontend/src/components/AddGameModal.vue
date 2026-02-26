@@ -90,7 +90,7 @@ const handleConfirm = () => {
 }
 
 .modal-content {
-  background-color: white;
+  background-color: #fbf6f6;
   color: black;
   border-radius: 0.5rem;
   box-shadow:
