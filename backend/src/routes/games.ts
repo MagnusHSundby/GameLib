@@ -14,9 +14,9 @@ router.get('/', async (req, res) => {
 });	
 
 router.post('/', async (req, res) => {
-    const { name, genre } = req.body;
+    const { name, genre, releaseDate } = req.body;
     try {
-        const result = await query('INSERT INTO spill (navn, sjanger, utgivelsesdato) VALUES (?, ?, CURRENT_DATE) RETURNING *', [name, genre]);
+        const result = await query('INSERT INTO spill (navn, sjanger, utgivelsesdato) VALUES (?, ?, ?) RETURNING *', [name, genre, releaseDate]);
         res.status(201).json(result[0]);
     } catch (error) {
         console.error('Error adding game:', error);
