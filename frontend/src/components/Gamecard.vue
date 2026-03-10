@@ -1,5 +1,5 @@
 <template>
-  <button
+  <div
     ref="cardRef"
     class="game-card"
     @mouseenter="onHover"
@@ -8,7 +8,7 @@
     <h2>{{ game.navn }}</h2>
     <p>{{ game.sjanger }}</p>
     <p class="date">Released: {{ formatDate(game.utgivelsesdato) }}</p>
-  </button>
+  </div>
 </template>
 
 <script setup lang="ts">
