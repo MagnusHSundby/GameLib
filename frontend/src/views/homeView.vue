@@ -1,14 +1,14 @@
 <template>
   <div class="home">
-    <AnimatedTitle text="Welcome to GameLib":animation-duration="10" />
+    <AnimatedTitle text="Welcome to GameLib" :animation-duration="10" />
     <p>A game library with all your favorite games</p>
     <RouterLink to="/games" class="cta-button">Browse Games</RouterLink>
   </div>
 </template>
 
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import AnimatedTitle from '../components/AnimatedTitle.vue';
+import { RouterLink } from "vue-router";
+import AnimatedTitle from "../components/AnimatedTitle.vue";
 </script>
 
 <style scoped>
@@ -32,7 +32,9 @@ import AnimatedTitle from '../components/AnimatedTitle.vue';
   border-radius: 8px;
   margin-top: 1rem;
   font-weight: 600;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .cta-button:hover {
