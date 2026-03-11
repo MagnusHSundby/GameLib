@@ -1,5 +1,10 @@
 <template>
-  <button class="custom-button" @mouseenter="onHover" @mouseleave="onLeave">
+  <button
+    ref="buttonRef"
+    class="custom-button"
+    @mouseenter="onHover"
+    @mouseleave="onLeave"
+  >
     {{ label }}
   </button>
 </template>
@@ -7,7 +12,7 @@
 <script setup lang="ts">
 import gsap from "gsap";
 import { onMounted } from "vue";
-
+import { ref } from "vue";
 interface Props {
   label: string;
   color1?: string;
@@ -22,10 +27,10 @@ const props = withDefaults(defineProps<Props>(), {
   animationDuration: 10,
 });
 
-onMounted(() => {
-  const button = document.querySelector(".custom-button");
+const buttonRef = ref(null);
 
-  gsap.from(button, {
+onMounted(() => {
+  gsap.from(buttonRef.value, {
     scale: 0.8,
     opacity: 0,
     duration: 0.5,
@@ -34,9 +39,7 @@ onMounted(() => {
 });
 
 const onHover = () => {
-  const button = document.querySelector(".custom-button");
-
-  gsap.to(button, {
+  gsap.to(buttonRef.value, {
     scale: 1.005,
     boxShadow: "0 4px 15px rgba(79, 195, 247, 0.15)",
     duration: 0.1,
@@ -45,9 +48,7 @@ const onHover = () => {
 };
 
 const onLeave = () => {
-  const button = document.querySelector(".custom-button");
-
-  gsap.to(button, {
+  gsap.to(buttonRef.value, {
     scale: 1,
     boxShadow: "0 1px 10px rgba(79, 195, 247, 0.1)",
     duration: 0.1,
