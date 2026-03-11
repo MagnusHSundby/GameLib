@@ -32,6 +32,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 const gameName = ref("");
 const gameGenre = ref("");
@@ -50,7 +52,9 @@ const handleConfirm = () => {
     gameReleaseDate: new Date(gameReleaseDate.value),
   });
   if (!gameName.value || !gameGenre.value || !gameReleaseDate.value) {
-    alert("Please fill in all fields");
+    toast("Please fill in all fields", {
+      autoClose: 4000,
+    });
     return;
   }
   fetch("/api/games", {
@@ -72,15 +76,20 @@ const handleConfirm = () => {
     })
     .then((data) => {
       console.log("Game added successfully:", data);
+      toast(`You succesfully added ${gameName.value} to your Library!`, {
+        autoClose: 4000,
+      });
     })
     .catch((error) => {
       console.error("Error adding game:", error);
+      toast(`Adding game failed, try again`, {
+        autoClose: 4000,
+      });
     });
 };
 </script>
 
 <style scoped>
-
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -118,7 +127,7 @@ const handleConfirm = () => {
 
 .button-container {
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   padding-top: 1rem;
 }
 
@@ -145,7 +154,7 @@ const handleConfirm = () => {
   border: none;
   background: linear-gradient(135deg, #1e2235 0%, #1a2845 100%);
   color: white;
-  font: inherit
+  font: inherit;
 }
 
 .btn-yes:hover {
@@ -173,5 +182,4 @@ const handleConfirm = () => {
   font-size: 1rem;
   font: inherit;
 }
-
 </style>
