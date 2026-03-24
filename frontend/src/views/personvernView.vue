@@ -1,68 +1,65 @@
 <template>
   <div class="article-wrapper">
-    <article class="personvern">
-      <AnimatedTitle text="Personvern" />
-      <p>Sist oppdatert: <time datetime="2026-03-24">24. mars 2026</time></p>
+    <article class="privacy">
+      <AnimatedTitle text="Privacy Policy" />
+      <p>Last updated: <time datetime="2026-03-24">March 24, 2026</time></p>
       <section>
-        <h2>Innledning</h2>
+        <h2>Introduction</h2>
         <p>
-          GameLib er en lokal spillbibliotek-applikasjon som lar deg lagre og
-          bla gjennom en samling av videospill. Denne personvernerklæringen
-          beskriver hvordan applikasjonen håndterer data.
+          GameLib is a local game library application that allows you to store
+          and browse a collection of video games. This privacy policy describes
+          how the application handles data.
         </p>
       </section>
       <section>
-        <h2>Personopplysninger</h2>
+        <h2>Personal Data</h2>
         <p>
-          GameLib samler ikke inn noen personopplysninger. Applikasjonen har
-          ingen brukerkontoer, ingen innlogging, og krever ingen personlig
-          informasjon som navn, e-post eller passord for å brukes.
+          GameLib does not collect any personal data. The application has no
+          user accounts, no login, and does not require any personal information
+          such as name, email, or password to be used.
         </p>
       </section>
       <section>
-        <h2>Informasjonskapsler</h2>
+        <h2>Cookies</h2>
+        <p>GameLib does not use cookies. No data is stored in your browser.</p>
+      </section>
+      <section>
+        <h2>Tracking and Analytics</h2>
         <p>
-          GameLib bruker ingen informasjonskapsler (cookies). Det lagres ingen
-          data i nettleseren din.
+          GameLib does not use any tracking or analytics tools. No data is sent
+          to third parties, and no user behavior is recorded or monitored.
         </p>
       </section>
       <section>
-        <h2>Sporing og analyse</h2>
+        <h2>Data Storage</h2>
         <p>
-          GameLib bruker ingen sporings- eller analyseverktøy. Det sendes ingen
-          data til tredjeparter, og ingen brukeratferd blir registrert eller
-          overvåket.
-        </p>
-      </section>
-      <section>
-        <h2>Lagring av data</h2>
-        <p>
-          Applikasjonen lagrer kun spillrelatert informasjon i en lokal
-          MariaDB-database på din egen maskin. Følgende data lagres per spill:
+          The application only stores game-related information in a local
+          MariaDB database on your own machine. The following data is stored per
+          game:
         </p>
         <ul>
-          <li>Spillnavn</li>
-          <li>Sjanger</li>
-          <li>Utgivelsesdato</li>
+          <li>Game title</li>
+          <li>Genre</li>
+          <li>Release date</li>
         </ul>
         <p>
-          Denne dataen inneholder ingen personopplysninger og forlater aldri din
-          lokale maskin.
+          This data contains no personal information and never leaves your local
+          machine.
         </p>
       </section>
       <section>
-        <h2>Tredjepartstjenester</h2>
+        <h2>Third-Party Services</h2>
         <p>
-          GameLib kommuniserer ikke med noen eksterne tjenester eller APIer. All
-          funksjonalitet kjører lokalt mellom nettleseren og din egen server.
+          GameLib does not communicate with any external services or APIs. All
+          functionality runs locally between your browser and your own server.
         </p>
       </section>
       <section>
-        <h2>Kontakt</h2>
+        <h2>Contact</h2>
         <address>
-          Har du spørsmål om personvern kan du ta kontakt via
-          <a href="https://github.com/magnushsundby/gamelib"
-            >prosjektets GitHub-side</a
+          If you have any questions about privacy, you can get in touch via
+          <a href="https://github.com/magnushsundby/gamelib">
+            the project's GitHub page </a
           >.
         </address>
       </section>
@@ -85,11 +82,11 @@ import AnimatedTitle from "@/components/AnimatedTitle.vue";
   padding: 2rem 1.5rem;
 }
 
-.personvern {
+.privacy {
   text-align: left;
 }
 
-.personvern h2 {
+.privacy h2 {
   color: #e0e0e0;
   font-size: 1.4rem;
   margin-top: 2rem;
@@ -98,18 +95,18 @@ import AnimatedTitle from "@/components/AnimatedTitle.vue";
   padding-bottom: 0.4rem;
 }
 
-.personvern p {
+.privacy p {
   font-weight: normal;
   line-height: 1.7;
   color: rgba(245, 245, 245, 0.85);
   margin: 0.6rem 0;
 }
 
-.personvern time {
+.privacy time {
   font-style: italic;
 }
 
-.personvern ul {
+.privacy ul {
   display: inline-block;
   text-align: left;
   list-style-position: inside;
@@ -117,30 +114,30 @@ import AnimatedTitle from "@/components/AnimatedTitle.vue";
   margin: 0.5rem 0 0.5rem 1rem;
 }
 
-.personvern li {
+.privacy li {
   font-weight: normal;
   color: rgba(245, 245, 245, 0.85);
   line-height: 1.8;
 }
 
-.personvern a {
+.privacy a {
   color: #90caf9;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.personvern a:hover {
+.privacy a:hover {
   color: #bbdefb;
   text-decoration: underline;
 }
 
-.personvern address {
+.privacy address {
   font-style: normal;
   font-weight: normal;
   color: rgba(245, 245, 245, 0.85);
 }
 
-.personvern section:first-of-type h2 {
+.privacy section:first-of-type h2 {
   margin-top: 1rem;
 }
 </style>
