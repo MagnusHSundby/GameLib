@@ -27,7 +27,7 @@ const linkRefs = ref<any[]>([]);
 const links = [
   { name: "Home", path: "/" },
   { name: "Games", path: "/games" },
-  { name: "Personvern", path: "/personvern" },
+  { name: "Privacy policy", path: "/privacypolicy" },
 ];
 
 onMounted(() => {

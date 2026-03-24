@@ -14,8 +14,8 @@ const router = createRouter({
       component: () => import("../views/gamesView.vue"),
     },
     {
-      path: "/personvern",
-      name: "personvern",
+      path: "/privacypolicy",
+      name: "privacy policy",
       component: () => import("../views/personvernView.vue"),
     },
   ],
