@@ -28,6 +28,7 @@ const links = [
   { name: "Home", path: "/" },
   { name: "Games", path: "/games" },
   { name: "Privacy policy", path: "/privacypolicy" },
+  { name: "User Guide", path: "/userguide" },
 ];
 
 onMounted(() => {
