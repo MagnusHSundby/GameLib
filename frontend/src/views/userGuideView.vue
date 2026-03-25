@@ -2,6 +2,7 @@
   <div class="article-wrapper">
     <article class="privacy">
       <AnimatedTitle text="User Guide" />
+      <p>Last updated: <time datetime="2026-3-25">March 25, 2026</time></p>
       <section>
         <h2>Navigating GameLib</h2>
         <p>
@@ -99,5 +100,8 @@ import AnimatedTitle from "@/components/AnimatedTitle.vue";
 }
 .privacy section:first-of-type h2 {
   margin-top: 1rem;
+}
+.privacy time {
+  font-style: italic;
 }
 </style>
